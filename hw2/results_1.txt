@@ -1,0 +1,174 @@
+
+Final test script for ParseGPX (09/30/2019)
+
+***** Checking for warning messages *****
+Making -B ./ParseGPX
+gcc -std=c99 -pedantic -Wall -g3 -o ParseGPX ParseGPX.c
+
+Each test is either passed or failed; there is no partial credit.
+
+
+           Basic Execution (50 points)
+PASSED  001. One trackpoint
+PASSED  002. Two trackpoints
+PASSED  003. Poorly formatted
+PASSED  004. Many trackpoints
+PASSED  005. With header
+PASSED  006. Single quotes around attributes
+PASSED  007. time element in header
+PASSED  008. time inside ele outside trkpt
+PASSED  009. Other attributes for trkpt
+PASSED  010. Attributes for ele
+PASSED  011. Attributes for time
+PASSED  012. Other elements in trkpt
+PASSED  013. ele elements outside trkpt
+PASSED  014. ele and time attributes for trkpt
+PASSED  015. ele and time attributes on other elements
+PASSED  016. Non-whitespace text in trkpt
+PASSED  017. Alternate format for lat
+PASSED  018. Alternate format for lon
+PASSED  019. Alternate format for ele
+PASSED  020. Alternate format for time
+
+           Basic Execution (50 points): 50 points
+
+           ele/time/lat/lon as substrings of other element/attrbute names (2 points)
+1c1
+< 41.3078680,-72.9342120,31.9,2019-08-30T23:11:22Z
+---
+> 41.3078680,-72.9342120,meters,2019-08-30T23:11:22Z
+Error: STDOUT differs from expected
+FAILED  021. element name starts/ends ele
+1c1
+< 41.3078680,-72.9342120,31.9,2019-08-30T23:11:22Z
+---
+> 41.3078680,-72.9342120,31.9,Z
+Error: STDOUT differs from expected
+FAILED  022. element name starts/ends time
+PASSED  023. attribute name starts/ends lat
+PASSED  024. attribute name starts/ends lon
+
+           ele/time/lat/lon as substrings of other element/attrbute names (2 points): 1 points
+
+           Empty (2 points)
+PASSED  025. Empty lat
+PASSED  026. Empty lon
+PASSED  027. Empty ele
+PASSED  028. Empty time
+
+           Empty (2 points): 2 points
+
+           Quotes (4 points)
+PASSED  029. Single inside double
+PASSED  030. Double inside single
+PASSED  031. C-style escapes
+
+           Quotes (4 points): 4 points
+
+           Upper/lower/mixed case (3 points)
+PASSED  032. Upper case for element types
+PASSED  033. Mixed case for element types
+PASSED  034. Mismatched cases in start/end tags
+1c1
+< 41.3078680,-72.9342120,31.9,2019-08-30T23:11:22Z
+---
+> 90.0,0.0,31.9,2019-08-30T23:11:22Z
+Error: STDOUT differs from expected
+FAILED  035. Uppercase LAT and LON
+
+           Upper/lower/mixed case (3 points): 2 points
+
+           Whitespace (8 points)
+PASSED  036. Single space after lat, before =
+PASSED  037. Single space after lon, before =
+PASSED  038. Single space after lat, after =
+PASSED  039. Single space after lon, after =
+PASSED  040. Single space after other attributes, before =
+PASSED  041. Single space after other attributes, after =
+PASSED  042. Single before end of tag
+PASSED  043. Multiple after lat, before =
+PASSED  044. Multiple after lon, before =
+PASSED  045. Multiple after lat, after =
+PASSED  046. Multiple after lon, after =
+PASSED  047. Multiple after other attributes, before =
+PASSED  048. Multiple after other attributes, after =
+PASSED  049. Multiple between attributes
+PASSED  050. Multiple before end of tag
+PASSED  051. Single space at end of end tag
+PASSED  052. Multiple whitespace at end of end tag
+PASSED  053. Uncommon whitespace characters
+PASSED  054. Leading and Trailing whitespace in ele and time
+
+           Whitespace (8 points): 8 points
+
+           Commas (3 points)
+PASSED  055. Comma in time text
+PASSED  056. Comma in time attribute
+PASSED  057. Comma in ele attribute
+PASSED  058. Comma in ele text
+PASSED  059. Comma in trkpt attribute
+PASSED  060. Comma in trkpt text
+PASSED  061. Comma in time element not in trkpt
+PASSED  062. Comma in other attribute
+PASSED  063. Comma in other text
+
+           Commas (3 points): 3 points
+
+           Long tokens (6 points)
+PASSED  064. Very long element type
+PASSED  065. Very long attribute name
+PASSED  066. Very long attribute value
+
+           Long tokens (6 points): 6 points
+
+           Long output (2 points)
+PASSED  067. Long latitude
+PASSED  068. Long longitude
+PASSED  069. Long elevation
+PASSED  070. Long time
+
+           Long output (2 points): 2 points
+
+           Invalid Input (20 points)
+PASSED  071. Missing end
+PASSED  072. lat/lon out of order
+PASSED  073. ele/time out of order
+PASSED  074. Missing lat attribute
+PASSED  075. Missing lon attribute
+PASSED  076. Missing both coordinates
+PASSED  077. Badly nested tags
+PASSED  078. Whitespace after tag start
+PASSED  079. Whitespace after /
+PASSED  080. Missing attribute equals
+PASSED  081. Missing attribute value
+PASSED  082. Missing attribute quotes
+PASSED  083. Quotes in text
+PASSED  084. Attributes on end tag
+PASSED  085. time inside ele inside trkpt
+PASSED  086. Missing whitespace
+PASSED  087. Duplicate attributes
+PASSED  088. Duplicate ele and time elements
+PASSED  089. Duplicate ele and time elements, out of order
+PASSED  090. Start tag inside start tag
+PASSED  091. EOF in element type
+PASSED  092. EOF in latitude
+
+           Invalid Input (20 points): 20 points
+
+               Deductions for Violating Specification (0 => no violation)
+
+End of Public Script
+
+ 98 points Total for ParseGPX
+
+           Possible Deductions (assessed later as appropriate)
+               -10 Lacks comments, poor identifiers, bad spacing, etc.
+                -5 Does not make
+                -5 Makefile missing
+                -5 Makefile incorrect
+                -1 Log file incorrectly named
+                -1 Log file lacks estimated time
+                -1 Log file lacks total time
+                -1 Log file lacks statement of major difficulties
+                -1 Compilation errors using -Wall -std=c99 -pedantic
+

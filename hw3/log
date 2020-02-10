@@ -1,0 +1,34 @@
+ESTIMATE of time to complete assignment: 12 hours
+
+      Time     Time
+Date  Started  Spent Work completed
+----  -------  ----  --------------
+10/12  2:30pm  2:00  Thought of how to implement track struct and decided to make a segment struct
+                     to store all relevant data; Implemented up to add_point.
+10/20  8:00pm  3:00  Implemented add_point and started working on merge function. Figured out how to make the makefile.
+10/21  8:00pm  3:00  Started running unit tests and had to heavily debug for seg faults and valgrind errors.
+10/22  8:00pm  3:00  Finished implementing add_point to pass unit tests. Tried implementing merge but
+                     ran into many valgrind errors; Decided to move pointers instead of reallocing new array of
+                     trackpoints;
+10/23  8:00pm  3:00  Removed all valgrind errors up to and including merge; Passed all unit tests up to track_heatmap. 
+                     Started brainstorming heatmap and how to account for wrap around.
+10/24  8:00pm  5:30  Implemented track_heatmap. Fixed a myriad of valgrind and seg fault errors. Eventually
+                     found a way to account for wrap around by finding the pair of adjacent trackpoints that produced
+                     the greatest distance in an array of trackpoints sorted in the order of increasing longitude.
+                     Edged cased as much as possible in the given time frame; Wrote log.
+10/25  2:00pm  0:30  Fixed issue with scanf in heatmap.c where my program would run into an infinite loop when
+                     given invalid coordinate values. Changed scanf implementation with fgets and sscanf to
+                     eliminate the issue.
+10/25  4:30pm  0:30  Reviewed code and edge cased further.
+               ----
+               20:30  TOTAL time spent
+
+I discussed my solution with: Kevin Chen, Erik Boesen, Max Lukianchikov, Ephraim Sutherland.
+
+The most difficult part of this assignment was most definitely debugging for valgrind errors. Plugging up memory
+ leaks after each function took up a lot more time than expected. Another problem that I ran into was the never-ending 
+ stream of segmentation faults that had to be heavily debugged using gdb and the traceback functionality. 
+ The most common issues associated with segmentation faults were going outside the bounds of arrays. 
+ Having a system to keep track of all of my arrays and their sizes was a harder task than previously thought. 
+ Another big challenge of this set was conceptualizing the wrap around and finding a way to distinguish when the wrap 
+ around necessary. I needed help from the ULAs to fully grasp the concept.

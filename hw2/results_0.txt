@@ -1,0 +1,29 @@
+
+Final test script for Hello (8/28/19)
+
+gcc -o Hello -Wall -pedantic -std=c99 -g3 hello.c
+
+Each test is either passed or failed; there is no partial credit.
+
+To execute the test labelled IJ, type the command:
+     /c/cs223/hw0/Tests/tIJ
+     ./Hello < /c/cs223/hw0/Tests/tIJ
+The answer expected is in /c/cs223/hw0/Tests/tIJ.out.
+
+
+           Basic Execution (100 points)
+  1 point  001. Check First Line
+  1 point  002. Do not Crash
+
+           Basic Execution (100 points): 100 points
+
+End of Public Script
+
+100 points Total for Hello
+
+           Possible Deductions (assessed later as appropriate)
+                -2 Does not make
+                -1 Log file incorrectly named
+                -1 Log file lacks estimated time
+                -1 Log file lacks total time
+

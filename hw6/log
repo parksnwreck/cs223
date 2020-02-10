@@ -1,0 +1,20 @@
+ESTIMATE of time to complete assignment: 10 hours
+
+      Time     Time
+Date  Started  Spent Work completed
+----  -------  ----  --------------
+12/8   8:00pm  4:00  Finished implementation of part 1 of the pset. Reviewed Aspnes notes and modified his implementation of
+                     BFS.
+12/9   8:00pm  4:00  Finished modifying TSP and added -greedy method. Spent time with ULAs running over the particulars of the
+                     algorithm. Changed static allocation of mememory to dynamic allocation.
+12/11  8:30pm  1:00  Edge-cased and wrote log.
+               ----
+               9:00  TOTAL time spent
+
+I discussed my solution with: Josh Ip, Kevin Chen.
+
+This assignment was definitely one of the smoothest of our homeworks. Once I conceptually understood graphs, I was easily able to implement
+lugraph.c and bfs. The hardest part of the assignment was understanding the greedy algorithm. I initially started with an implementation 
+with bubble sort and had to convert the algorithm to merge sort. After going through the algorithm with the ULAs, I had a fairly easy time
+implementing the algorithm into TSP. I also spent more time than I thought converting all static allocation of memory to dynamic allocation.
+Overall, the assignment was quite kind in terms of workload. 

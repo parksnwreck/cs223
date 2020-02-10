@@ -1,0 +1,7 @@
+#!/bin/bash
+# 2-by-2
+
+trap "/usr/bin/killall -q -u $USER Heatmap 2>/dev/null" 0 1 2 3 9 15
+trap "/bin/rm -f $STDERR" 0 1 2 3 9 15
+
+/c/cs474/bin/run -stderr=/dev/null ./Heatmap 1.0 1.0 .xX* 1 < /c/cs223/hw3/Tests/heatmap_2x2.in

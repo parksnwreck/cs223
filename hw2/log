@@ -1,0 +1,31 @@
+ESTIMATE of time to complete assignment: 10 hours
+
+      Time     Time
+Date  Started  Spent Work completed
+----  -------  ----  --------------
+9/27   9:00pm  3:00  Read assignment and looked up relevant functions 
+					 in C in a Nutshell and lecture notes and coded for FILE I/O.
+9/29   8:00pm  4:00  Finished reading in file and checking for argument validity.
+					 Implemented -nearest.
+10/02  9:00pm  3:30  Worked with ULAs to get a sense of insert nearest and farthest.
+					 Implemented insert nearest, but was getting incorrect distance
+					 and route.
+10/03  2:30pm  2:00  Heavily debugged using gdb to find bugs in total distance, swapping
+				     and reordering of the route. Validated the debugged insert nearest function with
+					 few test cases.
+10/03  8:30pm  2:00  Finished implementing insert farthest. Ran public tests to discover minor error
+					 in implementation of nearest. Fixed bugs using gdb. Discussed more edge cases with ULAs.
+					 Capped the number of characters fscanf was reading in to prevent seg fault.
+               ----
+               14:30  TOTAL time spent
+
+I discussed my solution with: Just ULAs.
+
+The most difficult part of this assigment was coming up with a list of auxiliary functions
+and retroactively changing repeated code into separate functions. Nearest was rather easy
+to implement but conceptualizing insert was extremely difficult from just reading the
+specs on the class page. I had to get help from ULAs to correctly interpret the specifications
+of the insert nearest and farthest functions. Also, I encountered faced difficulty from
+a lot of bugs dealing with function inputs and keeping track of arrays. Using gdb was 
+extremely helpful in pinpointing issues. I surprisingly spent a lot of time trying to 
+figure out how to format my output to look exactly like the test cases.

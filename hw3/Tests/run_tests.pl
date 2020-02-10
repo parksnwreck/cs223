@@ -1,0 +1,48 @@
+&sectionHeader('Unit Tests');
+@SOURCE = ();
+@LINK = ();
+$subtotal = &runTest('001', 'Create and destroy');
+$subtotal += &runTest('002', 'Empty track');
+$subtotal += &runTest('003', 'Add copies trackpoints');
+$subtotal += &runTest('004', 'Single segment');
+$subtotal += &runTest('005', 'Two segments');
+$subtotal += &runTest('006', 'Counts');
+$subtotal += &runTest('007', 'Add same timestamp');
+$subtotal += &runTest('008', 'New segment when most recent track is empty');
+$subtotal += &runTest('009', 'Merge');
+$subtotal += &runTest('010', 'Merge including 1st segment');
+$subtotal += &runTest('011', 'Merge one segment');
+$subtotal += &runTest('012', 'Invalid merge');
+$subtotal += &runTest('013', 'Heatmap');
+$total += floor($subtotal);
+&sectionResults('Unit Tests', $subtotal);
+
+&sectionHeader('Unit Tests with Valgrind');
+@SOURCE = ();
+@LINK = ();
+$subtotal = &runTest('014', 'Create and destroy');
+$subtotal += &runTest('015', 'Empty track');
+$subtotal += &runTest('016', 'Add copies trackpoints');
+$subtotal += &runTest('017', 'Single segment');
+$subtotal += &runTest('018', 'Two segments');
+$subtotal += &runTest('019', 'Counts');
+$subtotal += &runTest('020', 'Add same timestamp');
+$subtotal += &runTest('021', 'New segment when most recent track is empty');
+$subtotal += &runTest('022', 'Merge');
+$subtotal += &runTest('023', 'Merge including 1st segment');
+$subtotal += &runTest('024', 'Merge one segment');
+$subtotal += &runTest('025', 'Invalid merge');
+$subtotal += &runTest('026', 'Heatmap');
+$total += floor($subtotal);
+&sectionResults('Unit Tests with Valgrind', $subtotal);
+
+&sectionHeader('Heatmaps');
+@SOURCE = ();
+@LINK = ();
+$subtotal = &runTest('027', '2-by-2');
+$subtotal += &runTest('028', 'Walking a grid');
+$subtotal += &runTest('029', 'Long circuit');
+$subtotal += &runTest('030', 'Valgrind');
+$total += floor($subtotal);
+&sectionResults('Heatmaps', $subtotal);
+

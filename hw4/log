@@ -1,0 +1,34 @@
+ESTIMATE of time to complete assignment: 15 hours
+
+      Time     Time
+Date  Started  Spent Work completed
+----  -------  ----  --------------
+11/01  3:30pm  2:00  Reviewed chaining and open addressing implementations of hash maps. Decided to use the 
+                     chaining implementation for this pset. Implemented my smap struct as well as my entry struct
+                     along with the hash function, smap_create, smap_size.
+11/03  8:00pm  3:00  Implemented smap_contains_key, smap_get, smap_keys. Began working on smap_put initiallly without
+                     thinking about resizing. Eventually worked on auxiliary function called smapResize that would
+                     either shrink or grow the hashtable by a factor of two.
+11/04  8:00pm  3:00  Finished writing a draft of smap_put. Started working on smap_remove.
+11/05  8:00pm  3:00  Finished smap_remove, smap_for_each, smap_destroy. Started to run unit tests. Discovered
+                     many segmentation faults tracing back to smap_put resulting from incrementing issues.
+11/06  8:00pm  4:00  Figured out I was seg faulting on certain unit tests because my hash function was sometimes
+                     not returning a non-negative integer. Instituted the fix and brushed up my smap_destroy to   
+                     remove valgrind errors. Started working on blotto.c 
+11/07  8:30pm  6:00  Fully implemented blotto.c. Learned how to use getline, strtok to read stdin. Retraced 
+                     segmentation faults and after two hours figured out that my smap_keys was not implemented
+                     properly. Spent another hour figuring out that I wasn't casting into a double and was not
+                     storing values properly.
+11/08 11:00am  2:00  Edged cased. Made sure to free everything when exiting prematurely. Wrote log.
+               ----
+               23:00  TOTAL time spent
+
+I discussed my solution with: Kevin Chen, Ephraim Sutherland.
+
+ This assignment was similar to the last one in that a lot of my difficulties came from valgrind and segmentation
+ faults. I spent a lot of time keeping track of everything I needed to free and plugging up valgrind errors. I 
+ also ran into a lot of segmentation faults when I wasn't incrementing properly or trying to access elements
+ that were outside the bounds of an array or struct. I had to heavily use the debug functionality on VS code
+ and gdb to step into multiple layers of functions to eventually find that one line of code that was missing
+ that would crash the entire program. I definitely finished the assigment feeling strong about linked lists
+ and hash maps in general which was satisfying. 

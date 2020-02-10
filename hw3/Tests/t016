@@ -1,0 +1,8 @@
+#!/bin/bash
+# Add copies trackpoints
+
+trap "/usr/bin/killall -q -u $USER Unit 2>/dev/null" 0 1 2 3 9 15
+trap "/bin/rm -f $STDERR" 0 1 2 3 9 15
+
+/c/cs474/bin/run -stdout=/dev/null -stderr=/dev/null /usr/bin/valgrind --tool=memcheck --leak-check=yes -q  --log-file=valgrind.out ./Unit 3 < /dev/null
+cat valgrind.out

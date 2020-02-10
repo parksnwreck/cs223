@@ -1,0 +1,7 @@
+#!/bin/bash
+# Single segment
+
+trap "/usr/bin/killall -q -u $USER Unit 2>/dev/null" 0 1 2 3 9 15
+trap "/bin/rm -f $STDERR" 0 1 2 3 9 15
+
+/c/cs474/bin/run -stderr=/dev/null ./Unit 4 < /dev/null

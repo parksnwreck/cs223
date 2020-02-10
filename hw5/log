@@ -1,0 +1,29 @@
+ESTIMATE of time to complete assignment: 15 hours
+
+      Time     Time
+Date  Started  Spent Work completed
+----  -------  ----  --------------
+11/12  8:00pm  3:00  Reviewed notes on kdtree_create and started to implement the function. Modified mergesort from Aspnes notes
+                     to take in location structs instead of integers. Initially, implemented the function without dynamically
+                     allocating array of locations.
+11/13  8:00pm  3:00  Finished implemmenting kdtree_create. Started implementing kdtree_add and kdtree_contains. 
+                     For kdtree_add, initially did not consider duplication or  the case when there might be ties. 
+                     Added size field into the kdtree struct in order to check whether kdtree_add executed properly.
+11/14  8:00pm  3:00  Finished implementing kdtree_add and kdtree_contains. Learned how to do post order traversal
+                     and used it to implement kdtree_for_each and kdtree_destroy.
+11/17  8:00pm  2:00  Started to implement kdtree_nearest_neighbor and had to review the general concept of how 
+                     the recursion is supposed to work in each step. Took a lot more time wrapping my head around
+                     the concept rather than implementing.
+11/18  8:00pm  4:00  Finished implementing nearest neighbor. Ran public tests to find out that I needed to malloc For
+                     kdtree_create in order to handle a greater number of points. Fixed kdtree_add to account for ties.
+11/21  9:00pm  1:00  Wrote log and edge cased.
+               ----
+               16:00  TOTAL time spent
+
+I discussed my solution with: Josh Ip, Ephraim Sutherland.
+
+This assignment was definitely more conceptually difficult than it was practically difficult. The implementation, once
+the concept was understood, ran a lot smoother than I expected. I spent a lot more time on nearest neighbor than I thought
+I would. Understanding what exactly the distance to the "box" meant at each level of recursion needed some time to sink in.
+I also had to review and refamiliarize myself with recursion. I did not encounter as many valgrind errors as I did in the past 
+psets which saved a lot of time. I enjoyed this assignment because it solidified my understanding of trees and recursion

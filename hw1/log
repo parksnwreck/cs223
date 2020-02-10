@@ -1,0 +1,31 @@
+ESTIMATE of time to complete assignment: 10 hours
+
+      Time     Time
+Date  Started  Spent Work completed
+----  -------  ----  --------------
+9/12   4:00pm  0:30  read assignment and looked up relevant functions 
+					 in C in a Nutshell and lecture notes.
+9/14   10:00pm 2:30  wrote down potential state machine and implemented rough
+					 versions of states FINDTRKPTSTART, FINDLAT, FINDLON, 
+					 FINDELE, FINDTIME, FINDTRKPTEND.
+9/15   6:30pm  3:30  Finalized states, bebugged and tested code to pass all public cases;
+					 Spent one hour finding one line of code that was missing
+					 which was messing with outputs. Worked with ULAs at office hours.
+9/18   4:30pm  0:30  Fixed code to not parse for edge case when tag starts with lat but does
+					 not follow with white space (ex. <latmon...).
+9/18   7:45pm  2:00  Discussed more edge cases with ULAs. Replaced all checks for whitespace with
+					 isspace(). Spent 1hr 30 min trying to alter state machine to take levels
+					 and descendants into account. Finished writing log file.
+               ----
+               9:00  TOTAL time spent
+
+I discussed my solution with: Just ULAs.
+
+The most difficult part was coming up with the initial framework for my state machine.
+After conceptualizing the overall framework, making sure that each specification was 
+checked by my state machine was rather more time consuming than I thought. Checking
+for edge cases were also extremely difficult. For each case my edge case did not pass,
+I had to go back and alter my code which led to instances for which my code would break.
+To deal with those bugs, I had to learn how to use "gdb" (thank you ULAs!) to put break 
+points in my code and see what my code is doing at every step. I also spent a huge amount
+of time getting used to the syntax of C which slowed down my overall process.

@@ -1,0 +1,349 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+enum state {FINDTRKPTSTART, FINDLAT, FINDLON, FINDELE, FINDTIME, FINDTRKPTEND};
+
+void main(int argc, char **argv)
+{
+  // the current state of the FSM
+  enum state curr = FINDTRKPTSTART;
+
+  // the first character in file
+  char c = getchar();
+
+  while (c != EOF)
+    {
+      switch (curr)
+	{
+		case FINDTRKPTSTART:
+		{
+		  if (c == '<')
+		    {
+		      c = getchar();
+			  if (c == 't' || c == 'T')
+			    {
+			      c = getchar();
+			      if (c == 'r' || c == 'R')
+			      	{
+			      	c = getchar();
+			      	if (c == 'k' || c == 'K')
+				      {
+				      	c = getchar();
+						if (c == 'p' || c == 'P')
+					      {
+					      	c = getchar();
+					      	if (c == 't' || c == 'T')
+						      {
+								c = getchar();
+								curr = FINDLAT;
+						      }
+					      }
+				       }
+			      	}
+			    }
+			}
+		  else
+		    {
+		    	c = getchar();
+		    }
+		  break;
+		}
+
+		case FINDLAT:
+	    {
+		  if (c == 'l' || c == 'L')
+		    {
+			  c = getchar();
+			  if (c == 'a' || c == 'A')
+			    {
+			      c = getchar();
+			      if (c == 't' || c == 'T')
+			      	{
+			      	  c = getchar();
+			      	  while (c != '"' && c != 39 && c!= EOF)
+			      	  {
+			      	  	c = getchar();
+			      	  }
+			      	  if (c == '"')
+			      	  {
+			      	  	c = getchar();
+			      	  	putchar (c);
+			      	  	while (c != '"' && c!= EOF)
+			      	  	{
+				      	    c = getchar();
+							putchar (c);
+			      	  	}
+			      	  	putchar (',');
+			      	  	if (c == EOF)
+			      	  	{
+			      	  		curr = END;
+			      	  	}
+			      	  	else
+			      	  	{
+			      	  		c = getchar(c);
+			      	  		curr = FINDLON;
+			      	  	}
+			      	  }
+			      	  if (c == 39)
+			      	  {
+			      	  	c = getchar();
+			      	  	putchar (c);
+			      	  	while (c != 39 && c!= EOF)
+			      	  	{
+				      	    c = getchar();
+							putchar (c);
+			      	  	}
+			      	  	putchar (',');
+			      	  	if (c == EOF)
+			      	  	{
+			      	  		curr = END;
+			      	  	}
+			      	  	else
+			      	  	{
+			      	  		c = getchar(c);
+			      	  		curr = FINDLON;
+			      	  	}
+			      	  }
+			        }
+		        }
+		    }
+		    else
+		    {
+		    	c = getchar();
+		    }
+		    break;
+  		}
+
+		case FINDLON:
+		{
+		  if (c == 'l' || c == 'L')
+		    {
+			  c = getchar();
+			  if (c == 'o' || c == 'O')
+			    {
+			      c = getchar();
+			      if (c == 'n' || c == 'N')
+			      	{
+			      	  c = getchar();
+			      	  while (c != '"' && c != 39 && c!= EOF)
+			      	  {
+			      	  	c = getchar();
+			      	  }
+
+			      	  if (c == '"')
+			      	  {
+			      	  	c = getchar();
+			      	  	putchar (c);
+			      	  	while (c != '"' && c!= EOF)
+			      	  	{
+				      	    c = getchar();
+							putchar (c);
+			      	  	}
+			      	  	putchar (',');
+			      	    while (c != '>' && != EOF) 
+			      	    {
+			      	  		c = getchar(c);
+			      	  	}
+			      	  	c = getchar(c);
+			      	  	curr = FINDELE;
+			      	  }
+		
+			      	  if (c == 39)
+			      	  {
+			      	  	c = getchar();
+			      	  	putchar (c);
+			      	  	while (c != 39 && c!= EOF)
+			      	  	{
+				      	    c = getchar();
+							putchar (c);
+			      	  	}
+			      	  	putchar (',');
+			      	    while (c != '>' && != EOF) 
+			      	    {
+			      	  		c = getchar(c);
+			      	  	}
+			      	  	c = getchar(c);
+			      	  	curr = FINDELE;
+			      	  }
+			      	}
+		        }
+		    }
+		    else
+		    {
+		    	c = getchar();
+		    }
+		    break;
+		}
+
+		case FINDELE:
+		{
+		  if (c == '<')
+		    {
+		      c = getchar();
+			  if (c == 'e' || c == 'E')
+			    {
+			      c = getchar();
+			      if (c == 'l' || c == 'L')
+			      	{
+			      	c = getchar();
+			      	if (c == 'e' || c == 'E')
+				      {
+				      	c = getchar();
+				        while (c != '>' && != EOF) 
+			      	    {
+			      	  		c = getchar(c);
+			      	  	}
+			      	  	while (c != '<' && != EOF)
+			      	  	{
+			      	  		c = getchar(c);
+			      	  		putchar(c);		      	  		
+			      	  	}
+			      	  	putchar(',');
+			      	  	if (c == '<')
+			      	  	{
+			      	  		c = getchar(c);
+						    if (c == '/')
+						    {
+						    	c = getchar(c);
+								if (c == 'e' || c == 'E')
+						    	{
+						      		c = getchar();
+						      		if (c == 'l' || c == 'L')
+						      		{
+						      			c = getchar();
+						      			if (c == 'e' || c == 'E')
+						      			{
+							      			while (c != '>' && != EOF) 
+								      	    {
+								      	  		c = getchar(c);
+								      	  	}
+								      	  	c = getchar(c);
+								      	  	curr = FINDTIME;
+						      			}
+						      		}
+						      	}
+						    }
+						}
+			      	  }
+			        }
+			    }
+			}
+		  else
+		    {
+		    	c = getchar();
+		    }
+		  break;
+		}
+
+		case FINDTIME:
+		{
+		   if (c == '<')
+		    {
+		      c = getchar();
+		      if (c == 't' || c == 'T')
+		      {
+		      	  c = getchar();
+				  if (c == 'i' || c == 'I')
+				    {
+				      c = getchar();
+				      if (c == 'm' || c == 'M')
+				      	{
+				      	c = getchar();
+				      	if (c == 'e' || c == 'E')
+					      {
+					      	c = getchar();
+					        while (c != '>' && != EOF) 
+				      	    {
+				      	  		c = getchar(c);
+				      	  	}
+				      	  	while (c != '<' && != EOF)
+				      	  	{
+				      	  		c = getchar(c);
+				      	  		putchar(c);		      	  		
+				      	  	}
+				      	  	putchar('\n');
+				      	  	if (c == '<')
+				      	  	{
+				      	  		c = getchar(c);
+							    if (c == '/')
+							    {
+							    	c = getchar(c);
+							    	if (c == 't' || c == 'T')
+							    	{
+								    	if (c == 'i' || c == 'I')
+								    	{
+								      		c = getchar();
+								      		if (c == 'm' || c == 'M')
+								      		{
+								      			c = getchar();
+								      			if (c == 'e' || c == 'E')
+								      			{
+									      			while (c != '>' && != EOF) 
+										      	    {
+										      	  		c = getchar(c);
+										      	  	}
+										      	  	c = getchar(c);
+										      	  	curr = FINDTRKPTEND;
+								      			}
+								      		}
+								      	}
+							    	}
+							    }
+							}
+				      	  }
+				        }
+				    }
+				}
+		     }
+		  else
+		    {
+		    	c = getchar();
+		    }
+		  break;
+		}
+
+		case FINDTRKPTEND:
+		{
+		  if (c == '<')
+		    {
+		      c = getchar();
+		      if (c == '/')
+		        {
+		          c = getchar();
+				  if (c == 't' || c == 'T')
+				    {
+				      c = getchar();
+				      if (c == 'r' || c == 'R')
+				      	{
+				      	c = getchar();
+				      	if (c == 'k' || c == 'K')
+					      {
+					      	c = getchar();
+							if (c == 'p' || c == 'P')
+						      {
+						      	c = getchar();
+						      	if (c == 't' || c == 'T')
+							      {
+					      			while (c != '>' && != EOF) 
+						      	    {
+						      	  		c = getchar(c);
+						      	  	}
+									c = getchar();
+									curr = FINDTRKPTSTART;
+							      }
+						      }
+					       }
+				      	}
+				    }
+		        }
+			}
+		  else
+		  {
+		  	c = getchar();
+		  }
+		  break;
+		}
+	 }
+  }
+}
+

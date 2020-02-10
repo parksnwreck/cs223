@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx creator="StravaGPX" version="1.1" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+ <metadata>
+  <time>2018-08-24T13:49:45Z</time>
+ </metadata>
+ <trk>
+  <name>Morning Ride</name>
+  <type>1</type>
+  <trkseg>
+   <trkpt lat="41.3078680" lon="-72.9342120">
+    <i>
+    <i>
+    <ele>20.0</ele>
+    <time>2018-08-24T13:49:45Z</time>
+   	</i>
+   	</i>
+   	<i>
+   	    <ele>20.0</ele>
+    <time>2018-08-24T13:49:45Z</time>
+    </i>
+        <ele>20.0</ele>
+    <time>2018-08-24T13:49:45Z</time>
+   </trkpt>
+   <trkpt lat="41.3078680" lon="-72.9342120">
+    <ele>20.0</ele>
+    <time>2018-08-24T13:49:46Z</time>
+   </trkpt>
+   <trkpt lat="41.3078810" lon="-72.9342590">
+    <ele>20.0</ele>
+    <time>2018-08-24T13:49:49Z</time>
+   </trkpt>
+  </trkseg>
+ </trk>
+</gpx>
